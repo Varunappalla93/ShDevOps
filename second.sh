@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # variables
-
-echo "ramesh : good morning"
-echo "suresh : very good morning"
-
+person1=ramesh
+person2=suresh
+echo "$person1 : good morning"
+echo "$person2 : very good morning"

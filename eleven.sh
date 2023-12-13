@@ -15,7 +15,7 @@ VALIDATE()
 ID=$(id -u)  # to chec user id
 TIMESTAMP=$( date +%F-%H-%M-%S)
 
-$LOGFILE=/tmp/"$0-$TIMESTAMP.log"
+LOGFILE=/tmp/"$0-$TIMESTAMP.log"
 
 echo "Script name : $0"
 

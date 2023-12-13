@@ -12,7 +12,11 @@ VALIDATE()
 
 }
 
-ID=$(id -u) 
+ID=$(id -u)  # to chec user id
+TIMESTAMP=$( date +%F-%H-%M-%S)
+
+$LOGFILE=/tmp/"$0-$TIMESTAMP.log"
+
 echo "Script name : $0"
 
 if [ $ID -ne 0 ]
@@ -24,10 +28,10 @@ else
 fi
 
 
-yum install mysql -y
+yum install mysql -y &>> $LOGFILE
 
 VALIDATE $? "MYSQL"
 
-yum install git -y
+yum install git -y &>> $LOGFILE
 
-VALIDATE $? "GIT"
+VALIDATE $? "GIT" 

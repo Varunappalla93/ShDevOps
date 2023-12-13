@@ -16,7 +16,7 @@ VALIDATE()
 
 }
 
-ID=$(id -u)  # to chec user id
+ID=$(id -u)  # to check user id
 TIMESTAMP=$( date +%F-%H-%M-%S)
 LOGFILE=/tmp/"$0-$TIMESTAMP.log"
 

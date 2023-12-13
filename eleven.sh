@@ -1,13 +1,17 @@
 #!/bin/bash
+R="\e[31m",
+G="\e[32m",
+N="\e[0m",
+
 
 VALIDATE()
 {
     if [ $1 -ne 0 ]
     then 
-        echo "installing $2 is failed"
+        echo -e "ERROR installing $2 is $R failed $N"
         exit 1
     else
-        echo "installed $2 done successfully"
+        echo -e "installed $2 done $G successfully $N"
     fi
 
 }
@@ -15,13 +19,14 @@ VALIDATE()
 ID=$(id -u)  # to chec user id
 TIMESTAMP=$( date +%F-%H-%M-%S)
 
+
 LOGFILE=/tmp/"$0-$TIMESTAMP.log"
 
 echo "Script name : $0"
 
 if [ $ID -ne 0 ]
 then
-    echo "Please run the script with root access"
+    echo -e "$R Please run the script with root access $N"
     exit 1    # give any no other than 0, to exit here
 else
     echo "you are root user."

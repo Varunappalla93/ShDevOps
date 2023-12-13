@@ -18,11 +18,11 @@ VALIDATE()
 
 ID=$(id -u)  # to chec user id
 TIMESTAMP=$( date +%F-%H-%M-%S)
-
-
 LOGFILE=/tmp/"$0-$TIMESTAMP.log"
 
 echo "Script name : $0"
+echo "Script started executing at $TIMESTAMP"
+
 
 if [ $ID -ne 0 ]
 then

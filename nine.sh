@@ -31,5 +31,3 @@ then
 else
     echo "installed Git successfully"
 fi
-
-

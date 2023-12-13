@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ID=$(id -u)
+ID=$(id -u) # to check id, if root id is 0
 
 if [ $ID -ne 0 ]
 then
@@ -19,3 +19,17 @@ then
 else
     echo "installed mysql successfully"
 fi
+
+
+yum install git -y
+
+
+if [ $? -ne 0 ]
+then 
+    echo "installing Git failed"
+    exit 1
+else
+    echo "installed Git successfully"
+fi
+
+

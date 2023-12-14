@@ -48,54 +48,54 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? "Install node js 18 "
 
-useradd roboshop
+useradd roboshop &>> $LOGFILE
 
 VALIDATE $? "Creating roboshop user"
 
-mkdir /app
+mkdir /app &>> $LOGFILE
 
 VALIDATE $? "Creating app directory" &>> $LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
 
-VALIDATE $? "Downloading catalogue app" &>> $LOGFILE
+VALIDATE $? "Downloading catalogue app" 
 
 
-cd /app
+cd /app &>> $LOGFILE
 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip &>> $LOGFILE
 
-VALIDATE $? "unzipping catalogue" &>> $LOGFILE
+VALIDATE $? "unzipping catalogue" 
 
-npm install 
+npm install &>> $LOGFILE
 
-VALIDATE $? "installing dependencies" &>> $LOGFILE
+VALIDATE $? "installing dependencies" 
 
 # we use absolute path as catalogue service is in that path
 cp /home/centos/ShDevOps/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
 
-VALIDATE $? "Copying catalogue service file" &>> $LOGFILE
+VALIDATE $? "Copying catalogue service file" 
 
 systemctl daemon-reload &>> $LOGFILE
 
-VALIDATE $? "catalogue deamon reload" &>> $LOGFILE
+VALIDATE $? "catalogue deamon reload" 
 
 systemctl enable catalogue &>> $LOGFILE
 
-VALIDATE $? "catalogue enable" &>> $LOGFILE
+VALIDATE $? "catalogue enable" 
 
 systemctl start catalogue &>> $LOGFILE
 
-VALIDATE $? "catalogue start" &>> $LOGFILE
+VALIDATE $? "catalogue start" 
 
 cp /home/centos/ShDevOps/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
-VALIDATE $? "copying mongodb repo" &>> $LOGFILE
+VALIDATE $? "copying mongodb repo" 
 
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y &>> $LOGFILE
 
-VALIDATE $? "installing mongodb client" &>> $LOGFILE
+VALIDATE $? "installing mongodb client" 
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js
+mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
 
-VALIDATE $? "Loading catalogue data into mongodb DB" &>> $LOGFILE
+VALIDATE $? "Loading catalogue data into mongodb DB"

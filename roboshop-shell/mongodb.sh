@@ -48,12 +48,12 @@ VALIDATE $? "Enabling mongoDB"
 systemctl start mongod &>> $LOGFILE
 
 
-# VALIDATE $? "Starting mongoDB"
+VALIDATE $? "Starting mongoDB"
 
-# sed -i 's/127\.0\.0\.1/0\.0\.0\.0/' /etc/mongod.conf &>> $LOGFILE
+sed -i 's/127\.0\.0\.1/0\.0\.0\.0/' /etc/mongod.conf &>> $LOGFILE
 
-# VALIDATE $? "Remote access to mongoDB"
+VALIDATE $? "Remote access to mongoDB"
 
-# systemctl restart mongod &>> $LOGFILE
+systemctl restart mongod &>> $LOGFILE
 
-# VALIDATE $? "Restart mongoDB"
+VALIDATE $? "Restart mongoDB"

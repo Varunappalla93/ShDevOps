@@ -16,6 +16,7 @@ VALIDATE()
     if [ $1 -ne 0 ]
     then    
         echo -e $2.....$R Failed ..$N
+        exit 1
     else
         echo -e $2.....$G success ..$N
     fi
@@ -56,4 +57,4 @@ VALIDATE $? "Remote access to mongoDB"
 
 systemctl restart mongod &>> $LOGFILE
 
-VALIDATE $? "Restart mongoDB"
+VALIDATE $? "Restart mongoDB"l

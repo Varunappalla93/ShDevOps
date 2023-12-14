@@ -22,8 +22,6 @@ VALIDATE()
 }
 
 
-
-
 ID=$(id -u)  # to check user id
 
 if [ $ID -ne 0 ]

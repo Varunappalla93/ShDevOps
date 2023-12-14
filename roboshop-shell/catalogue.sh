@@ -58,8 +58,6 @@ else
     echo -e "roboshop user exists $Y , hence skipping $N"
 fi
 
-VALIDATE $? "Creating roboshop user"
-
 mkdir -p /app
 
 VALIDATE $? "Creating app directory" &>> $LOGFILE

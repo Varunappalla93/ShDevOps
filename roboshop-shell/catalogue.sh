@@ -49,11 +49,18 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? "Install node js 18 "
 
-useradd roboshop &>> $LOGFILE
+id roboshop
+if [ $? -ne 0 ]
+then
+    useradd roboshop
+    VALIDATE $? "roboshop creation user"
+else
+    echo -e "roboshop user exists $Y , hence skipping $N"
+fi
 
 VALIDATE $? "Creating roboshop user"
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app
 
 VALIDATE $? "Creating app directory" &>> $LOGFILE
 
@@ -64,7 +71,7 @@ VALIDATE $? "Downloading catalogue app"
 
 cd /app &>> $LOGFILE
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE
 
 VALIDATE $? "unzipping catalogue" 
 

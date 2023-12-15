@@ -62,37 +62,38 @@ mkdir -p /app
 
 VALIDATE $? "Creating app directory" &>> $LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOGFILE
+curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip &>> $LOGFILE
 
-VALIDATE $? "Downloading catalogue app" 
+VALIDATE $? "Downloading user app" 
 
 
-cd /app &>> $LOGFILE
+cd /app
 
-unzip -o /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/user.zip &>> $LOGFILE
 
-VALIDATE $? "unzipping catalogue" 
+VALIDATE $? "unzipping user" 
 
 npm install &>> $LOGFILE
 
 VALIDATE $? "installing dependencies" 
 
-# we use absolute path as catalogue service is in that path
-cp /home/centos/ShDevOps/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service
+# we use absolute path as user service is in that path
+cp /home/centos/ShDevOps/roboshop-shell/user.service /etc/systemd/system/user.service
 
-VALIDATE $? "Copying catalogue service file" 
+
+VALIDATE $? "Copying user service file" 
 
 systemctl daemon-reload &>> $LOGFILE
 
-VALIDATE $? "catalogue deamon reload" 
+VALIDATE $? "user deamon reload" 
 
-systemctl enable catalogue &>> $LOGFILE
+systemctl enable user &>> $LOGFILE
 
-VALIDATE $? "catalogue enable" 
+VALIDATE $? "user enable" 
 
-systemctl start catalogue &>> $LOGFILE
+systemctl start user &>> $LOGFILE
 
-VALIDATE $? "catalogue start" 
+VALIDATE $? "user start" 
 
 cp /home/centos/ShDevOps/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
@@ -102,6 +103,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "installing mongodb client" 
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
+mongo --host $MONGODB_HOST </app/schema/user.js &>> $LOGFILE
 
-VALIDATE $? "Loading catalogue data into mongoDB"
+VALIDATE $? "Loading user data into mongoDB"

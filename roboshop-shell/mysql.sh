@@ -40,24 +40,24 @@ dnf module disable mysql -y &>> $LOGFILE
 VALIDATE $? "disable current mysql version"
 
 
-cp mysql.repo /etc/yum.repos.d/mysql.repo
+cp mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
 
 VALIDATE $? "Copied mysql repo"
 
 
-dnf install mysql-community-server -y
+dnf install mysql-community-server -y &>> $LOGFILE
 
 VALIDATE $? "installing mysql server"
 
-systemctl enable mysqld
+systemctl enable mysqld &>> $LOGFILE
 
 VALIDATE $? "enable mysql server"
 
-systemctl start mysqld
+systemctl start mysqld &>> $LOGFILE
 
 VALIDATE $? "start mysql server"
 
-mysql_secure_installation --set-root-pass RoboShop@1
+mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOGFILE
 
 VALIDATE $? "set mysql server password"
 

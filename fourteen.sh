@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -e   # to stop at errors
 ls -ltr
 
 touch example.txt

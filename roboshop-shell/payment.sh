@@ -59,6 +59,8 @@ cd /app
 
 pip3.6 install -r requirements.txt &>> $LOGFILE 
 
+VALIDATE $? "installing dependencies"
+
 cp /home/centos/ShDevOps/roboshop-shell/payment.service /etc/systemd/system/payment.service
 
 systemctl daemon-reload &>> $LOGFILE 

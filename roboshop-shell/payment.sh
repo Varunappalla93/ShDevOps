@@ -49,7 +49,7 @@ fi
 
 mkdir /app 
 
-curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip
+curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip &>> $LOGFILE 
 
 cd /app 
 
@@ -57,12 +57,12 @@ unzip -o /tmp/payment.zip &>> $LOGFILE
 
 cd /app 
 
-pip3.6 install -r requirements.txt
+pip3.6 install -r requirements.txt &>> $LOGFILE 
 
 cp /home/centos/ShDevOps/roboshop-shell/payment.service /etc/systemd/system/payment.service
 
-systemctl daemon-reload
+systemctl daemon-reload &>> $LOGFILE 
 
-systemctl enable payment 
+systemctl enable payment &>> $LOGFILE 
 
-systemctl start payment
+systemctl start payment &>> $LOGFILE 

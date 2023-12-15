@@ -32,8 +32,8 @@ location /images/ {
 }
 
 location /api/catalogue/ { proxy_pass http://catalogue.vandevops.online:8080/; }
-location /api/user/ { proxy_pass http://localhost:8080/; }
-location /api/cart/ { proxy_pass http://localhost:8080/; }
+location /api/user/ { proxy_pass http://user.vandevops.online:8080/; }
+location /api/cart/ { proxy_pass http://cart.vandevops.online:8080/; }
 location /api/shipping/ { proxy_pass http://localhost:8080/; }
 location /api/payment/ { proxy_pass http://localhost:8080/; }
 

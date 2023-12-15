@@ -72,7 +72,7 @@ unzip -o /tmp/cart.zip &>> $LOGFILE
 
 VALIDATE $? "unzipping cart" 
 
-npm install &>> $LOGFILE
+npm install
 
 VALIDATE $? "installing dependencies" 
 

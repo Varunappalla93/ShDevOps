@@ -15,7 +15,7 @@ fi
 
 
 file="/etc/passwd"
-while IFS=":" read -r $username $password $userid $groupid $userfullname $homedirectory $shellpath
+while IFS=":" read -r username password userid groupid userfullname homedirectory shellpath
 do
     echo "username : $username"
     echo "userid:  $userid"

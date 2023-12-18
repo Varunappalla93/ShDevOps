@@ -6,7 +6,7 @@ Y="\e[33m",
 N="\e[0m",
 
 
-src_directory=/tmp/shellscript-logs
+src_directory="/tmp/shellscript-logs"
 
 if [ ! -d $src_directory ] # ! is opposite
 then
@@ -17,7 +17,7 @@ fi
 
 # find . -type f - to find files
 
-FILES_TO_DELETE=$(find . -type f -mtime +14 name "*.log")
+FILES_TO_DELETE=$(find . -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line
 do

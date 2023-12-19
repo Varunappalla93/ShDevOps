@@ -1,4 +1,4 @@
-#!/bib/bash
+#!/bin/bash
 
 DISK_USAGE=$(df -hT | grep -vE 'tmp|File')
 
@@ -18,3 +18,7 @@ do
 done <<< $DISK_USAGE
 
 echo -e "Message: $message"
+
+# echo "$message" | mail -s "High Disk Usage" an.varun1993@gmail.com"
+
+sh mail.sh "DevOps Team" "HIGH DISK USAGE" "$message" "an.varun1993@gmail.com" "ALERT-HIGH DISK USAGE"

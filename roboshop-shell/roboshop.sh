@@ -3,8 +3,8 @@
 AMI=ami-03265a0778a880afb 
 SG_ID=sg-00217dc8cbd2f0637
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
-ZONE_ID=Z104317737D96UJVA7NEF
-DOMAIN_NAME="daws76s.online"
+ZONE_ID=Z0795560ER6TZ62ZD7AF
+DOMAIN_NAME="vandevops.online"
 
 for i in "${INSTANCES[@]}"
 do
@@ -36,7 +36,7 @@ do
         }
         }]
     }'
-    
+
 done
 
 

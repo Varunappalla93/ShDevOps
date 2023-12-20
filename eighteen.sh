@@ -21,3 +21,9 @@ while getopts ":n:w:h" opt;do
         :) USAGE; exit;;
     esac
 done
+
+if [ -z "$NAME" ] || [ -z $"WISHES" ]; then
+    echo "ERROR : BOTH -n and -w are mandatory"
+    USAGE
+    exit 1
+fi

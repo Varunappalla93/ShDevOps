@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME=""
-WISHES=""
+WISHES="Good Morning"
 
 USAGE()
 {
@@ -22,7 +22,8 @@ while getopts ":n:w:h" opt;do
     esac
 done
 
-if [ -z "$NAME" ] || [ -z $"WISHES" ]; then
+# if [ -z "$NAME" ] || [ -z $"WISHES" ]; then
+if [ -z "$NAME" ]; then # wishes is optional now
     echo "ERROR : BOTH -n and -w are mandatory"
     USAGE
     exit 1

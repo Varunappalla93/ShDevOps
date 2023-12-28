@@ -1,0 +1,19 @@
+- name: QA
+  dob: 1993
+  address:
+    line 1: "QA Street" 
+    line 2: "Madhapur"
+    city: Hyderabad
+  lastname : Automation
+
+- name: "Testing"
+  dob: 1993
+  address: # list of address fields
+  - line 1: "QA Street" 
+    line 2: "Madhapur"
+    city: Hyderabad
+
+  - line 1: "QA2 Street" 
+    line 2: "Madhapur2"
+    city: Hyderabad2
+  lastname : Automation2

@@ -1,0 +1,19 @@
+{
+    "name": "QA",
+    "age": 30,
+    "dob": "1993",
+    "address": [
+        {
+            "address-line1": "QA Street",
+            "line2": "Madhapur",
+            "City": "Hyderabad",
+            "type": "home"
+        },
+        {
+            "address-line1": "QA Street",
+            "line2": "Madhapur",
+            "City": "Hyderabad",
+            "type": "office"
+        }
+    ]
+}

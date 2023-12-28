@@ -1,0 +1,9 @@
+<person>
+<name>QA</name>
+<dob>1993</dob>
+  <address>
+    <address line>QA Street</address line>
+    <address line>Madhapur</address line>
+    <address line>Hyderabad</address line>
+  </address>
+</person>
